@@ -2,18 +2,17 @@
  * @Author: gm.chen
  * @Date: 2020-06-24 17:18:37
  * @LastEditors: gm.chen
- * @LastEditTime: 2020-06-24 17:40:05
+ * @LastEditTime: 2020-07-13 21:01:29
  * @Description: file content
- * @FilePath: /vue-demo/src/router/sample.js
+ * @FilePath: /vue-demo/src/router/routers/sample.js
  */
-
-import Layout from '@/layout'
+import EmptyLayout from '@/layout/empty'
 
 export default {
   path: '/sample',
   name: '例子',
   redirect: '/sample/index',
-//   component: Layout,
+  component: EmptyLayout,
   children: [
     {
       path: 'index',

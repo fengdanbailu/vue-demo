@@ -2,14 +2,14 @@
  * @Author: gm.chen
  * @Date: 2019-08-15 15:40:05
  * @LastEditors: gm.chen
- * @LastEditTime: 2020-06-24 13:10:35
+ * @LastEditTime: 2020-07-13 17:23:05
  * @Description: file content
  * @FilePath: /vue-demo/src/App.vue
---> 
+-->
 
 <template>
   <div id="app">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
