@@ -1,3 +1,11 @@
+/*
+ * @Author: gm.chen
+ * @Date: 2020-06-24 20:35:42
+ * @LastEditors: gm.chen
+ * @LastEditTime: 2020-07-14 09:43:43
+ * @Description: file content
+ * @FilePath: /vue-demo/src/store/modules/settings.js
+ */
 import variables from '@/styles/element-variables.scss'
 import defaultSettings from '@/settings'
 

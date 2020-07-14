@@ -1,3 +1,11 @@
+/*
+ * @Author: gm.chen
+ * @Date: 2020-06-24 20:35:42
+ * @LastEditors: gm.chen
+ * @LastEditTime: 2020-07-14 10:10:34
+ * @Description: file content
+ * @FilePath: /vue-demo/src/store/index.js
+ */
 import Vue from 'vue'
 import Vuex from 'vuex'
 import getters from './getters'
@@ -17,6 +25,7 @@ const modules = modulesFiles.keys().reduce((modules, modulePath) => {
   return modules
 }, {})
 
+console.log(modules)
 const store = new Vuex.Store({
   modules,
   getters

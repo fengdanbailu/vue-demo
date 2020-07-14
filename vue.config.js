@@ -1,3 +1,4 @@
+
 'use strict'
 const path = require('path')
 const defaultSettings = require('./src/settings.js')
@@ -6,8 +7,6 @@ const proxyConfig = require('./proxy.config')
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
-
-
 const name = defaultSettings.title || '' // page title
 
 // If your port is set to 80,

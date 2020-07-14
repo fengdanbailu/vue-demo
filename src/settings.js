@@ -1,5 +1,13 @@
+/*
+ * @Author: gm.chen
+ * @Date: 2020-06-24 20:35:42
+ * @LastEditors: gm.chen
+ * @LastEditTime: 2020-07-13 22:13:51
+ * @Description: file content
+ * @FilePath: /vue-demo/src/settings.js
+ */
 module.exports = {
-  title: 'Vue Element Admin',
+  title: 'vue-demo',
 
   /**
    * @type {boolean} true | false

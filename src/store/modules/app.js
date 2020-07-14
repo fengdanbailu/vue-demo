@@ -1,3 +1,11 @@
+/*
+ * @Author: gm.chen
+ * @Date: 2020-06-24 20:35:42
+ * @LastEditors: gm.chen
+ * @LastEditTime: 2020-07-14 09:43:15
+ * @Description: file content
+ * @FilePath: /vue-demo/src/store/modules/app.js
+ */
 import Cookies from 'js-cookie'
 
 const state = {
@@ -43,7 +51,7 @@ const actions = {
   toggleDevice({ commit }, device) {
     commit('TOGGLE_DEVICE', device)
   },
-  setSize({ commit }, size){
+  setSize({ commit }, size) {
     commit('SET_SIZE', size)
   }
 }

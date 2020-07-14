@@ -1,3 +1,11 @@
+/*
+ * @Author: gm.chen
+ * @Date: 2020-06-24 20:35:42
+ * @LastEditors: gm.chen
+ * @LastEditTime: 2020-07-14 09:44:04
+ * @Description: file conte
+ * @FilePath: /vue-demo/src/store/getters.js
+ */
 const getters = {
   sidebar: state => state.app.sidebar,
   size: state => state.app.size,

@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2019-08-21 20:33:23
  * @LastEditors: gm.chen
- * @LastEditTime: 2020-07-13 21:09:20
+ * @LastEditTime: 2020-07-14 15:20:19
  * @Description: file content
  * @FilePath: /vue-demo/src/router/index.js
  */
@@ -12,10 +12,15 @@ import NProgress from 'nprogress'
 import routes from './routers'
 
 Vue.use(Router)
+
 const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes: routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    // back to header
+    return { x: 0, y: 0 }
+  }
 })
 
 NProgress.configure({ showSpinner: false })
