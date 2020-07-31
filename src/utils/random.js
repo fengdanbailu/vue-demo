@@ -1,7 +1,7 @@
-import uuid from 'uuid';
+import uuid from 'uuid'
 
-export const getUUID = () => uuid.v4().replace(/-/g, '');
+export const getUUID = () => uuid.v4().replace(/-/g, '')
 
 export default {
-  getUUID,
-};
+  getUUID
+}

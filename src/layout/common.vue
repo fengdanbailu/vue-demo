@@ -2,26 +2,41 @@
  * @Author: gm.chen
  * @Date: 2020-07-13 20:56:22
  * @LastEditors: gm.chen
- * @LastEditTime: 2020-07-14 13:47:00
+ * @LastEditTime: 2020-07-31 16:23:39
  * @Description: file content
  * @FilePath: /vue-demo/src/layout/common.vue
 -->
 <template>
   <el-container class="wrap">
-    <el-header height="50px">
-      &nbsp;
+    <el-header height="60px">
+      <Header />
     </el-header>
     <el-container>
       <el-aside class="sidebar-content" />
       <el-main class="main-content">
-        <transition mode="out-in" name="fade">
-          <router-view />
-        </transition>
+        <div class="main-router">
+          <transition mode="out-in" name="fade">
+            <router-view />
+          </transition>
+        </div>
+
+        <Footer />
       </el-main>
       <el-aside v-show="false" class="sidebar-content" />
     </el-container>
   </el-container>
 </template>
+
+<script>
+import Footer from './components/Footer'
+import Header from './components/Header'
+export default {
+  components: {
+    Footer,
+    Header
+  }
+}
+</script>
 
 <style lang="scss" scoped >
   .fade-enter-active, .fade-leave-active {
@@ -44,6 +59,9 @@
       overflow: auto;
       background : #f3f3f4;
       position: relative;
+    }
+    .main-router {
+      min-height: 900px;
     }
     .sidebar-content {
       height: calc(100vh - 45px);
