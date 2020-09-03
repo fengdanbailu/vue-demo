@@ -1,13 +1,15 @@
 {
   "name": "vue-demo",
   "version": "0.1.0",
-  "description": "the demo for vue",
+  "description": "My personal project for vue step by step",
   "author": "fengdanbailu",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "dev": "vue-cli-service serve --copy",
+    "serve": "vue-cli-service serve --open ",
+    "build": "vue-cli-service build --report",
     "lint": "vue-cli-service lint",
-    "dev": "vue-cli-service serve"
+    "inspect": "vue-cli-service inspect",
+    "help": "vue-cli-service help"
   },
   "dependencies": {
     "animate.css": "^3.7.2",

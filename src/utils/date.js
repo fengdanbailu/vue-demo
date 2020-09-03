@@ -5,7 +5,7 @@
  * @LastEditTime: 2020-07-31 10:56:09
  * @Description: file content
  * @FilePath: /vue-demo/src/utils/date.js
- */ 
+ */
 /*
  * @Author: gm.chen
  * @Date: 2020-07-23 16:33:38

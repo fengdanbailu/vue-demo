@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2020-07-23 16:33:38
  * @LastEditors: gm.chen
- * @LastEditTime: 2020-07-31 17:17:24
+ * @LastEditTime: 2020-09-02 17:50:23
  * @Description: file content
  * @FilePath: /vue-demo/src/store/modules/app.js
  */
@@ -74,7 +74,7 @@ const mutations = {
 
     //   debugger
     state.navMenuTopItems.map((item, index) => {
-      if (item.name && header.hasOwnProperty(item.name) && header[item.name].children) {
+      if (header && item.name && Object.prototype.hasOwnProperty.call(header, item.name) && header[item.name].children) {
         Vue.set(state.navMenuTopItems[index], 'children', header[item.name].children)
       }
     })

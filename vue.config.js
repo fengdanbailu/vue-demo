@@ -13,9 +13,10 @@ const name = defaultSettings.title || '' // page title
 // use administrator privileges to execute the command line.
 // For example, Mac: sudo npm run
 // You can change the port by the following methods:
-// port = 8088 npm run dev OR npm run dev --port = 8088
+// port = 8088 npm   dev OR npm run dev --port = 8088
 const port = process.env.port || process.env.npm_config_port || 8088 // dev port
 
+const publicPath = process.env.NODE_ENV === 'production' ? '/mydemo' : '/'
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
   /**
@@ -25,7 +26,7 @@ module.exports = {
    * In most cases please use '/' !!!
    * Detail: https://cli.vuejs.org/config/#publicpath
    */
-  publicPath: '/',
+  publicPath: publicPath,
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
