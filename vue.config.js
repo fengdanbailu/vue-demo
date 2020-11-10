@@ -2,7 +2,6 @@
 'use strict'
 const path = require('path')
 const defaultSettings = require('./src/settings.js')
-const proxyConfig = require('./proxy.config')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -14,9 +13,7 @@ const name = defaultSettings.title || '' // page title
 // For example, Mac: sudo npm run
 // You can change the port by the following methods:
 // port = 8088 npm   dev OR npm run dev --port = 8088
-const port = process.env.port || process.env.npm_config_port || 8088 // dev port
-
-const publicPath = process.env.NODE_ENV === 'production' ? '/mydemo' : '/'
+const port = process.env.port || process.env.npm_config_port || process.env.VUE_APP_PORT || 8088// dev port
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
   /**
@@ -26,23 +23,20 @@ module.exports = {
    * In most cases please use '/' !!!
    * Detail: https://cli.vuejs.org/config/#publicpath
    */
-  publicPath: publicPath,
+  publicPath: '/',
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
   devServer: {
     port: port,
-    open: false,
+    open: true,
     overlay: {
-      warnings: false,
+      warnings: true,
       errors: true
-    },
-    proxy: proxyConfig
+    }
   },
   configureWebpack: {
-    // provide the app's title in webpack's name field, so that
-    // it can be accessed in index.html to inject the correct title.
     name: name,
     resolve: {
       alias: {

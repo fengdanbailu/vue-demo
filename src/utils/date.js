@@ -2,15 +2,7 @@
  * @Author: gm.chen
  * @Date: 2020-07-23 16:33:38
  * @LastEditors: gm.chen
- * @LastEditTime: 2020-07-31 10:56:09
- * @Description: file content
- * @FilePath: /vue-demo/src/utils/date.js
- */
-/*
- * @Author: gm.chen
- * @Date: 2020-07-23 16:33:38
- * @LastEditors: gm.chen
- * @LastEditTime: 2020-07-31 10:53:31
+ * @LastEditTime: 2020-11-10 21:36:09
  * @Description: file content
  * @FilePath: /vue-demo/src/utils/date.js
  */
