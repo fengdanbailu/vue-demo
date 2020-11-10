@@ -2,13 +2,11 @@
  * @Author: gm.chen
  * @Date: 2020-07-23 16:33:38
  * @LastEditors: gm.chen
- * @LastEditTime: 2020-11-10 23:27:53
+ * @LastEditTime: 2020-11-10 23:41:17
  * @Description: file content
  * @FilePath: /vue-demo/src/store/modules/app.js
  */
 import Cookies from 'js-cookie'
-import { getTreePath, saveTreePath, getNavTopActiveIndex, saveNavTopActiveIndex } from '@/utils/location'
-import Vue from 'vue'
 
 const state = {
   sidebar: {
