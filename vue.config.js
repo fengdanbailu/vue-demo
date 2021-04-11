@@ -32,7 +32,7 @@ module.exports = {
     port: port,
     open: true,
     overlay: {
-      warnings: true,
+      warnings: false,
       errors: true
     }
   },
@@ -43,10 +43,30 @@ module.exports = {
         '@': resolve('src')
       }
     }
+    // performance: {
+    //   hints: 'warning',
+    //   // 入口起点的最大体积
+    //   maxEntrypointSize: 1024 * 10,
+    //   // 生成文件的最大体积
+    //   maxAssetSize: 1024 * 20,
+    //   // 只给出 js 文件的性能提示
+    //   assetFilter: function(assetFilename) {
+    //     return assetFilename.endsWith('.js')
+    //   }
+    // }
   },
   chainWebpack(config) {
-    config.plugins.delete('preload') // TODO: need test
-    config.plugins.delete('prefetch') // TODO: need test
+    if (process.env.NODE_ENV === 'production') {
+      if (process.env.npm_config_report) {
+        config
+          .plugin('webpack-bundle-analyzer')
+          .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
+          .end()
+        config.plugins.delete('prefetch')
+      }
+    }
+    // config.plugins.delete('preload') // TODO: need test
+    // config.plugins.delete('prefetch') // TODO: need test
 
     // set svg-sprite-loader
     config.module

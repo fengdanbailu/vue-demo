@@ -2,17 +2,19 @@
  * @Author: gm.chen
  * @Date: 2020-07-13 20:56:22
  * @LastEditors: gm.chen
- * @LastEditTime: 2020-07-31 16:23:39
+ * @LastEditTime: 2021-04-11 23:13:17
  * @Description: file content
  * @FilePath: /vue-demo/src/layout/common.vue
 -->
 <template>
   <el-container class="wrap">
-    <el-header height="60px">
+    <el-header height="40px">
       <Header />
     </el-header>
     <el-container>
-      <el-aside class="sidebar-content" />
+      <el-aside class="sidebar-content">
+        <Aside />
+      </el-aside>
       <el-main class="main-content">
         <div class="main-router">
           <transition mode="out-in" name="fade">
@@ -30,6 +32,7 @@
 <script>
 import Footer from './components/Footer'
 import Header from './components/Header'
+import Aside from './components/Aside'
 export default {
   components: {
     Footer,
