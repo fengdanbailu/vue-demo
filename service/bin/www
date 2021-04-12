@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+/* eslint-disable no-undef */
+/* eslint-disable no-fallthrough */
+
 /**
  * Module dependencies.
  */
@@ -7,11 +10,10 @@
 var app = require('../app')
 var debug = require('debug')('service:server')
 var http = require('http')
-
+const chalk = require('chalk')
 /**
  * Get port from environment and store in Express.
  */
-
 var port = normalizePort(process.env.PORT || '3000')
 app.set('port', port)
 
@@ -85,4 +87,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port
   debug('Listening on ' + bind)
+  console.log(chalk.green(`server listening on ${bind}`))
 }
