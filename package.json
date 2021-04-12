@@ -11,7 +11,7 @@
     "inspect": "vue-cli-service inspect",
     "help": "vue-cli-service help",
     "proxy": "node ./build/proxy",
-    "service": "node ./service/index"
+    "service": "cd service && yarn start && cd .."
   },
   "dependencies": {
     "animate.css": "^3.7.2",
