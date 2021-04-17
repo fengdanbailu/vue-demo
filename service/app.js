@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2021-04-12 06:30:21
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-17 19:23:16
+ * @LastEditTime: 2021-04-17 22:56:00
  * @Description: file content
  * @FilePath: /vue-demo/service/app.js
  */
@@ -10,7 +10,8 @@
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
-const createError = require('http-errors')
+const serveStatic = require('serve-static')
+const httpError = require('http-errors')
 const path = require('path')
 const stylus = require('stylus')
 
@@ -22,13 +23,16 @@ var app = express()
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
+// app.set('trust proxy', 'loopback, 123.123.123.123') // specify a subnet and an address
 
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(stylus.middleware(path.join(__dirname, 'public')))
-app.use(express.static(path.join(__dirname, 'public')))
+
+// 静态文档服务器
+app.use(serveStatic(path.join(__dirname, 'public')))
 // 前端路由
 app.use('/', indexRouter)
 // 后端路由
@@ -36,7 +40,7 @@ app.use('/api', apiRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404))
+  next(httpError(404))
 })
 
 // error handler
