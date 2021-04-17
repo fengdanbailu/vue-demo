@@ -2,19 +2,20 @@
  * @Author: gm.chen
  * @Date: 2021-04-12 06:30:21
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-12 07:11:30
+ * @LastEditTime: 2021-04-17 19:23:16
  * @Description: file content
  * @FilePath: /vue-demo/service/app.js
  */
-var createError = require('http-errors')
-var express = require('express')
-var path = require('path')
-var cookieParser = require('cookie-parser')
-var logger = require('morgan')
-var stylus = require('stylus')
+
+const express = require('express')
+const cookieParser = require('cookie-parser')
+const logger = require('morgan')
+const createError = require('http-errors')
+const path = require('path')
+const stylus = require('stylus')
 
 var indexRouter = require('./routes/index')
-var usersRouter = require('./routes/users')
+var apiRouter = require('./api/routes')
 
 var app = express()
 
@@ -28,9 +29,10 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(stylus.middleware(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'public')))
-
+// 前端路由
 app.use('/', indexRouter)
-app.use('/users', usersRouter)
+// 后端路由
+app.use('/api', apiRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

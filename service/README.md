@@ -10,9 +10,10 @@ express service
 
 检查是否存在 mysql --version
 启动mysql brew services restart mysql@5.7
-连接mysql mycli  -h localhost -u root (Guoming@#004)
+连接mysql mycli  -h localhost -u root 
 登陆数据库 mycli mysql://root@localhost:3306/t_express
-
+创建新用户 grant all privileges on t_express.* to express@localhost identified by '1qaz@WSX' 
+查看是否建立成功 select * from mysql.`user`
 
 检查是否存在 mongod --version
 
@@ -20,7 +21,7 @@ express service
 进入命令 mongo
 创建账号 db.createUser({user:"express",pwd:"12345678",roles:[{role:"userAdminAnyDatabase",db:"admin"}]})
 验证账号 db.auth('express','12345678')
-为了增加安全性，修改/usr/local/etc/mongod.conf，如下打开安全认证
+为了增加安全性，修改 /usr/local/etc/mongod.conf ，如下打开安全认证
 ```
 security:
   authorization: enabled
