@@ -1,10 +1,10 @@
 /*
  * @Author: gm.chen
- * @Date: 2021-04-17 15:31:51
+ * @Date: 2021-04-18 10:54:18
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-17 16:08:46
+ * @LastEditTime: 2021-04-18 10:54:28
  * @Description: file content
- * @FilePath: /vue-demo/service/api/config/mysql/index.js
+ * @FilePath: /vue-demo/service/api/config/mysql.js
  */
 const config = {
   host: 'localhost',

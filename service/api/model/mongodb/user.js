@@ -2,16 +2,21 @@
  * @Author: gm.chen
  * @Date: 2021-04-15 07:31:01
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-17 17:17:09
+ * @LastEditTime: 2021-04-18 14:11:01
  * @Description: file content
- * @FilePath: /vue-demo/service/api/model/public/login.js
+ * @FilePath: /vue-demo/service/api/model/mongodb/user.js
  */
 
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
-var loginSchema = new Schema({
-  userName: {
+const userSchema = new Schema({
+  _id: false,
+  uuid: {
+    type: String,
+    require: true
+  },
+  name: {
     type: String,
     require: true
   },
@@ -26,5 +31,5 @@ var loginSchema = new Schema({
   updateBy: String,
   updateTime: Date
 })
-
-module.exports = mongoose.model('Login', loginSchema, 'login')
+const NAME = 'User'
+module.exports = mongoose.model(NAME, userSchema, NAME.toLowerCase())

@@ -2,9 +2,9 @@
  * @Author: gm.chen
  * @Date: 2020-06-24 15:45:52
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-18 16:51:36
+ * @LastEditTime: 2021-04-18 16:51:43
  * @Description: file content
- * @FilePath: /vue-demo/src/views/sample/ex_2.vue
+ * @FilePath: /vue-demo/src/views/sample/ex_3.vue
 -->
 <template>
   <el-card>
@@ -16,7 +16,7 @@ export default {
   name: 'Sample',
   data() {
     return {
-      message: 'mongodb书签管理'
+      message: 'mysql书签管理'
     }
   }
 }

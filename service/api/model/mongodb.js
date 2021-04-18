@@ -2,14 +2,13 @@
  * @Author: gm.chen
  * @Date: 2021-04-15 07:30:50
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-17 17:24:12
+ * @LastEditTime: 2021-04-18 13:55:30
  * @Description: file content
- * @FilePath: /vue-demo/service/api/model/common.js
+ * @FilePath: /vue-demo/service/api/model/mongodb.js
  */
 var mongoose = require('mongoose')
 var MONGODB_URL = require('../config/mongodb').url
 var readline = require('readline')
-
 if (process.platform === 'win32') {
   var rl = readline.createInterface({
     input: process.stdin,
@@ -25,7 +24,7 @@ mongoose.set('useNewUrlParser', true)
 mongoose.set('useFindAndModify', false)
 mongoose.set('useCreateIndex', true)
 mongoose.set('useUnifiedTopology', true)
-mongoose.connect(MONGODB_URL)
+mongoose.connect(MONGODB_URL, { keepAlive: 120 })
 
 mongoose.connection.on('connected', function() {
   console.log('Mongoose connected to ' + MONGODB_URL)

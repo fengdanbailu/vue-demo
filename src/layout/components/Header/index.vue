@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2020-07-31 09:55:31
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-11 23:25:14
+ * @LastEditTime: 2021-04-18 16:58:17
  * @Description: file content
  * @FilePath: /vue-demo/src/layout/components/Header/index.vue
 -->
@@ -10,6 +10,23 @@
 import { mapGetters } from 'vuex'
 
 const menuItems = [
+  {
+    title: '数据库',
+    children: [
+      {
+        title: '用户管理',
+        router: '/sample/ex_1'
+      },
+      {
+        title: 'mongodb书签管理',
+        router: '/sample/ex_2'
+      },
+      {
+        title: 'mysql书签管理',
+        router: '/sample/ex_3'
+      }
+    ]
+  },
   {
     title: 'Sample展示',
     router: '/'
@@ -60,9 +77,7 @@ export default {
     ...mapGetters(['navTopActiveIndex'])
   },
   methods: {
-    handleSelect(key, keyPath) {
-      this.$store.dispatch('setNavTopActiveIndex', key)
-    }
+
   },
   render(h) {
     function renderItem(itemData, index) {
@@ -89,7 +104,7 @@ export default {
         </el-menu-item>
       )
     }
-    const { menuItems, navTopActiveIndex, handleSelect } = this
+    const { menuItems } = this
 
     return (
       <el-menu
@@ -98,8 +113,6 @@ export default {
         mode='horizontal'
         active-text-color='#409EFF'
         unique-opened={true}
-        defaultActive={navTopActiveIndex}
-        on-select={handleSelect}
       >{ menuItems.map((itemData, index) => renderItem(itemData, index.toString())) }</el-menu>
     )
   }

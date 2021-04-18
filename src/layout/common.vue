@@ -2,13 +2,13 @@
  * @Author: gm.chen
  * @Date: 2020-07-13 20:56:22
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-11 23:13:17
+ * @LastEditTime: 2021-04-18 17:00:11
  * @Description: file content
  * @FilePath: /vue-demo/src/layout/common.vue
 -->
 <template>
   <el-container class="wrap">
-    <el-header height="40px">
+    <el-header height="60px">
       <Header />
     </el-header>
     <el-container>

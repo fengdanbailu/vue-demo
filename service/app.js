@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2021-04-12 06:30:21
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-17 22:56:00
+ * @LastEditTime: 2021-04-18 13:49:30
  * @Description: file content
  * @FilePath: /vue-demo/service/app.js
  */
@@ -17,7 +17,7 @@ const stylus = require('stylus')
 
 var indexRouter = require('./routes/index')
 var apiRouter = require('./api/routes')
-
+require('./api/model')
 var app = express()
 
 // view engine setup

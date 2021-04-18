@@ -1,12 +1,11 @@
 /*
  * @Author: gm.chen
- * @Date: 2021-04-17 15:31:24
+ * @Date: 2021-04-18 10:53:59
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-17 16:08:16
+ * @LastEditTime: 2021-04-18 10:54:09
  * @Description: file content
- * @FilePath: /vue-demo/service/api/config/mongodb/index.js
+ * @FilePath: /vue-demo/service/api/config/mongodb.js
  */
-
 const config = {
   host: 'localhost',
   port: 27017,
