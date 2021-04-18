@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2020-07-13 20:56:22
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-18 17:00:11
+ * @LastEditTime: 2021-04-18 17:05:52
  * @Description: file content
  * @FilePath: /vue-demo/src/layout/common.vue
 -->
@@ -36,7 +36,8 @@ import Aside from './components/Aside'
 export default {
   components: {
     Footer,
-    Header
+    Header,
+    Aside
   }
 }
 </script>

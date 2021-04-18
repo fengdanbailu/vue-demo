@@ -29,12 +29,13 @@ module.exports = {
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
   devServer: {
-    port: port,
-    open: true,
-    overlay: {
-      warnings: false,
-      errors: true
-    }
+    proxy: 'http://localhost:8089'
+    // port: port,
+    // open: true,
+    // overlay: {
+    //   warnings: false,
+    //   errors: true
+    // }
   },
   configureWebpack: {
     name: name,
