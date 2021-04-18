@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2020-06-24 15:45:52
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-18 20:12:35
+ * @LastEditTime: 2021-04-19 07:08:33
  * @Description: file content
  * @FilePath: /vue-demo/src/views/sample/ex_1.vue
 -->
@@ -34,18 +34,26 @@
           width="50"
         />
         <el-table-column
-          prop="date"
-          label="日期"
-          width="180"
-        />
-        <el-table-column
           prop="name"
-          label="姓名"
+          label="账号"
           width="180"
         />
         <el-table-column
-          prop="address"
-          label="地址"
+          prop="password"
+          label="密码"
+          width="180"
+        />
+        <el-table-column
+          prop="createTime"
+          label="创建时间"
+        />
+        <el-table-column
+          prop="updateTime"
+          label="修改时间"
+        />
+        <el-table-column
+          prop="updateBy"
+          label="操作人"
         />
       </el-table>
     </el-card>
@@ -58,7 +66,7 @@ export default {
   data() {
     return {
       title: '用户管理',
-      tableData: [{}],
+      tableData: [],
       multipleSelection: []
     }
   },
@@ -72,32 +80,48 @@ export default {
     async getTableList() {
       const condition = {}
       const res = await userList(condition)
-      console.log(res)
+      this.tableData = res
     },
     async btnAdd() {
       const condition = {
-        uuid: 'qazw-kdkslsd-kdsldk-42s4',
+        uuid: 'uuid-' + Math.ceil(Math.random() * 1000000),
         name: 'gmchen',
         password: '123456'
       }
       const res = await userAdd(condition)
-      console.log(res)
+      this.getTableList()
     },
     async btnUpdate() {
-      const condition = {
-        uuid: 'qazw-kdkslsd-kdsldk-42s4',
-        name: 'guoming.chen',
-        password: '12345678'
+      const detail = this.multipleSelection
+      if (detail.length === 1) {
+        const condition = {
+          uuid: detail[0].uuid,
+          name: 'guoming.chen',
+          password: Math.ceil(Math.random() * 1000000)
+        }
+        const res = await userUpdate(condition)
+        this.getTableList()
+      } else {
+        this.$notice({
+          type: 'warning',
+          message: '请选择一条记录'
+        })
       }
-      const res = await userUpdate(condition)
-      console.log(res)
     },
     async btnDelete() {
-      const condition = {
-        uuid: 'qazw-kdkslsd-kdsldk-42s4'
+      const detail = this.multipleSelection
+      if (detail.length === 1) {
+        const condition = {
+          uuid: detail[0].uuid
+        }
+        const res = await userDelete(condition)
+        this.getTableList()
+      } else {
+        this.$notice({
+          type: 'warning',
+          message: '请选择一条记录'
+        })
       }
-      const res = await userDelete(condition)
-      console.log(res)
     },
     async btnView() {
       const condition = {

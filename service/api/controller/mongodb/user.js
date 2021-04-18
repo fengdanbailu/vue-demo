@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2021-04-15 07:24:25
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-18 14:12:26
+ * @LastEditTime: 2021-04-19 06:52:23
  * @Description: file content
  * @FilePath: /vue-demo/service/api/controller/mongodb/user.js
  */
@@ -14,14 +14,16 @@ var TModel = mongoose.model('User')
 
 module.exports.add = function(req, res) {
   const tmodel = {
-    uuid: req.uuid,
-    name: req.name,
-    password: req.password,
-    updateBy: req.updateBy,
-    updateTime: req.updateTime
+    uuid: req.body.uuid,
+    name: req.body.name,
+    password: req.body.password,
+    updateBy: 'init',
+    updateTime: Date.now()
   }
   TModel.create(tmodel, function(err, data) {
+    console.log(data)
     if (err) {
+      console.log(err)
       sendJsonResponse(res, 500, err)
       return
     }
@@ -31,13 +33,13 @@ module.exports.add = function(req, res) {
 
 module.exports.update = function(req, res) {
   const tmodel = {
-    uuid: req.uuid,
-    name: req.name,
-    password: req.password,
-    updateBy: req.updateBy,
-    updateTime: req.updateTime
+    uuid: req.body.uuid,
+    name: req.body.name,
+    password: req.body.password,
+    updateBy: 'admin',
+    updateTime: Date.now()
   }
-  TModel.findOneAndUpdate(tmodel, function(err, data) {
+  TModel.updateOne(tmodel, function(err, data) {
     if (err) {
       sendJsonResponse(res, 500, err)
       return
@@ -47,6 +49,7 @@ module.exports.update = function(req, res) {
 }
 
 module.exports.delete = function(req, res) {
+  console.log(req.uuid)
   const tmodel = {
     uuid: req.uuid
   }
@@ -60,9 +63,11 @@ module.exports.delete = function(req, res) {
 }
 
 module.exports.detail = function(req, res) {
+  console.log(req.uuid)
   const tmodel = {
     uuid: req.uuid
   }
+  console.log(tmodel)
   TModel.find(tmodel, function(err, data) {
     if (err) {
       sendJsonResponse(res, 500, err)

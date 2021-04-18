@@ -2,12 +2,13 @@
  * @Author: gm.chen
  * @Date: 2020-11-10 23:31:10
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-18 16:38:18
+ * @LastEditTime: 2021-04-18 22:07:08
  * @Description: file content
  * @FilePath: /vue-demo/src/api/user.js
  */
 import request from '@/utils/request'
 const rootPath = `/user`
+
 export function userAdd(data) {
   return request({
     url: `${rootPath}/add`,
@@ -44,7 +45,7 @@ export function userList(data) {
   return request({
     url: `${rootPath}/list`,
     method: 'post',
-    params: data
+    data
   })
 }
 

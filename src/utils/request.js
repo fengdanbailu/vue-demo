@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2020-11-10 23:19:53
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-18 14:39:44
+ * @LastEditTime: 2021-04-19 07:00:14
  * @Description: file content
  * @FilePath: /vue-demo/src/utils/request.js
  */
@@ -34,7 +34,8 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     const res = response.data
-    if (res.code !== 200) {
+    // eslint-disable-next-line no-constant-condition
+    if (res.code === 200) {
       Notification({
         message: res.message,
         type: 'error',

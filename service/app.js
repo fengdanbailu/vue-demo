@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2021-04-12 06:30:21
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-18 13:49:30
+ * @LastEditTime: 2021-04-18 22:01:17
  * @Description: file content
  * @FilePath: /vue-demo/service/app.js
  */
@@ -11,6 +11,7 @@ const express = require('express')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const serveStatic = require('serve-static')
+const bodyParser = require('body-parser')
 const httpError = require('http-errors')
 const path = require('path')
 const stylus = require('stylus')
@@ -27,7 +28,7 @@ app.set('view engine', 'ejs')
 
 app.use(logger('dev'))
 app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(stylus.middleware(path.join(__dirname, 'public')))
 
