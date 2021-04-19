@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2021-04-15 07:24:25
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-19 06:52:23
+ * @LastEditTime: 2021-04-19 23:04:57
  * @Description: file content
  * @FilePath: /vue-demo/service/api/controller/mongodb/user.js
  */
@@ -32,6 +32,9 @@ module.exports.add = function(req, res) {
 }
 
 module.exports.update = function(req, res) {
+  const condition = {
+    uuid: req.body.uuid
+  }
   const tmodel = {
     uuid: req.body.uuid,
     name: req.body.name,
@@ -39,7 +42,7 @@ module.exports.update = function(req, res) {
     updateBy: 'admin',
     updateTime: Date.now()
   }
-  TModel.updateOne(tmodel, function(err, data) {
+  TModel.updateOne(condition, tmodel, function(err, data) {
     if (err) {
       sendJsonResponse(res, 500, err)
       return
@@ -49,9 +52,8 @@ module.exports.update = function(req, res) {
 }
 
 module.exports.delete = function(req, res) {
-  console.log(req.uuid)
   const tmodel = {
-    uuid: req.uuid
+    uuid: req.query.uuid
   }
   TModel.remove(tmodel, function(err, data) {
     if (err) {
@@ -63,17 +65,15 @@ module.exports.delete = function(req, res) {
 }
 
 module.exports.detail = function(req, res) {
-  console.log(req.uuid)
   const tmodel = {
-    uuid: req.uuid
+    uuid: req.query.uuid
   }
-  console.log(tmodel)
   TModel.find(tmodel, function(err, data) {
     if (err) {
       sendJsonResponse(res, 500, err)
       return
     }
-    sendResponse(res, 200, data)
+    sendResponse(res, 200, data.length > 0 ? data[0] : {})
   })
 }
 

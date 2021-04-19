@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2020-06-24 15:45:52
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-19 07:08:33
+ * @LastEditTime: 2021-04-19 23:19:51
  * @Description: file content
  * @FilePath: /vue-demo/src/views/sample/ex_1.vue
 -->
@@ -84,7 +84,7 @@ export default {
     },
     async btnAdd() {
       const condition = {
-        uuid: 'uuid-' + Math.ceil(Math.random() * 1000000),
+        uuid: 'uuid-' + Math.ceil(Math.random() * 100000000),
         name: 'gmchen',
         password: '123456'
       }
@@ -97,7 +97,7 @@ export default {
         const condition = {
           uuid: detail[0].uuid,
           name: 'guoming.chen',
-          password: Math.ceil(Math.random() * 1000000)
+          password: Math.ceil(Math.random() * 10000000)
         }
         const res = await userUpdate(condition)
         this.getTableList()
@@ -124,11 +124,18 @@ export default {
       }
     },
     async btnView() {
-      const condition = {
-        uuid: 'qazw-kdkslsd-kdsldk-42s4'
+      const detail = this.multipleSelection
+      if (detail.length === 1) {
+        const condition = {
+          uuid: detail[0].uuid
+        }
+        const res = await userDetail(condition)
+      } else {
+        this.$notice({
+          type: 'warning',
+          message: '请选择一条记录'
+        })
       }
-      const res = await userDetail(condition)
-      console.log(res)
     }
   }
 }
