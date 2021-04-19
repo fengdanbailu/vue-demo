@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2020-06-24 15:45:52
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-19 23:19:40
+ * @LastEditTime: 2021-04-20 06:52:23
  * @Description: file content
  * @FilePath: /vue-demo/src/views/sample/ex_2.vue
 -->
@@ -78,7 +78,7 @@ export default {
   name: 'Sample',
   data() {
     return {
-      title: '用户管理',
+      title: '书签管理',
       tableData: [],
       multipleSelection: []
     }

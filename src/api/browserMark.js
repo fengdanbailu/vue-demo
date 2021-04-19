@@ -2,14 +2,14 @@
  * @Author: gm.chen
  * @Date: 2019-08-21 20:33:23
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-20 06:55:55
+ * @LastEditTime: 2021-04-20 06:56:35
  * @Description: file content
- * @FilePath: /vue-demo/src/api/bookMark.js
+ * @FilePath: /vue-demo/src/api/browserMark.js
  */
 
 import request from '@/utils/request'
-const rootPath = `/bookMark`
-export function bookMarkAdd(data) {
+const rootPath = `/browserMark`
+export function browserMarkAdd(data) {
   return request({
     url: `${rootPath}/add`,
     method: 'post',
@@ -17,7 +17,7 @@ export function bookMarkAdd(data) {
   })
 }
 
-export function bookMarkUpdate(data) {
+export function browserMarkUpdate(data) {
   return request({
     url: `${rootPath}/update`,
     method: 'put',
@@ -25,7 +25,7 @@ export function bookMarkUpdate(data) {
   })
 }
 
-export function bookMarkDelete(data) {
+export function browserMarkDelete(data) {
   return request({
     url: `${rootPath}/delete`,
     method: 'delete',
@@ -33,7 +33,7 @@ export function bookMarkDelete(data) {
   })
 }
 
-export function bookMarkDetail(data) {
+export function browserMarkDetail(data) {
   return request({
     url: `${rootPath}/detail`,
     method: 'get',
@@ -41,7 +41,7 @@ export function bookMarkDetail(data) {
   })
 }
 
-export function bookMarkList(data) {
+export function browserMarkList(data) {
   return request({
     url: `${rootPath}/list`,
     method: 'post',

@@ -2,15 +2,15 @@
  * @Author: gm.chen
  * @Date: 2021-04-15 07:24:25
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-20 07:36:34
+ * @LastEditTime: 2021-04-20 07:37:16
  * @Description: file content
- * @FilePath: /vue-demo/service/api/controller/mongodb/bookMark.js
+ * @FilePath: /vue-demo/service/api/controller/mysql/browserMark.js
  */
 'use strict'
 
-var mongoose = require('mongoose')
+var mysql = require('mysql')
 var { sendJsonResponse, sendResponse } = require('../common')
-var TModel = mongoose.model('BookMark')
+var TModel = require('../../model/mysql/browserMark')
 
 module.exports.add = function(req, res) {
   const tmodel = {

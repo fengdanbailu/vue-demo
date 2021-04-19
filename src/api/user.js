@@ -6,6 +6,7 @@
  * @Description: file content
  * @FilePath: /vue-demo/src/api/user.js
  */
+
 import request from '@/utils/request'
 const rootPath = `/user`
 
