@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2020-06-24 15:45:52
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-20 06:57:47
+ * @LastEditTime: 2021-04-20 23:13:16
  * @Description: file content
  * @FilePath: /vue-demo/src/views/sample/ex_3.vue
 -->
@@ -36,17 +36,14 @@
         <el-table-column
           prop="uuid"
           label="ID"
-          width="180"
         />
         <el-table-column
           prop="name"
           label="名称"
-          width="180"
         />
         <el-table-column
           prop="puuid"
           label="PID"
-          width="180"
         />
         <el-table-column
           prop="type"

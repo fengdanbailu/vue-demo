@@ -2,16 +2,14 @@
  * @Author: gm.chen
  * @Date: 2021-04-15 07:24:25
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-20 07:37:16
+ * @LastEditTime: 2021-04-20 23:23:12
  * @Description: file content
  * @FilePath: /vue-demo/service/api/controller/mysql/browserMark.js
  */
 'use strict'
-
-var mysql = require('mysql')
 var { sendJsonResponse, sendResponse } = require('../common')
 var TModel = require('../../model/mysql/browserMark')
-
+const date = require('silly-datetime')
 module.exports.add = function(req, res) {
   const tmodel = {
     uuid: req.body.uuid,
@@ -19,10 +17,11 @@ module.exports.add = function(req, res) {
     puuid: req.body.puuid,
     type: req.body.type,
     link: req.body.link,
+    createTime: date.format(new Date(), 'YYYY-MM-DD HH:mm:ss'),
     updateBy: 'init',
-    updateTime: Date.now()
+    updateTime: date.format(new Date(), 'YYYY-MM-DD HH:mm:ss')
   }
-  TModel.create(tmodel, function(err, data) {
+  TModel.insert(tmodel, function(err, data) {
     if (err) {
       sendJsonResponse(res, 500, err)
       return
@@ -42,9 +41,9 @@ module.exports.update = function(req, res) {
     type: req.body.type,
     link: req.body.link,
     updateBy: 'admin',
-    updateTime: Date.now()
+    updateTime: date.format(new Date(), 'YYYY-MM-DD HH:mm:ss')
   }
-  TModel.updateOne(condition, tmodel, function(err, data) {
+  TModel.update(condition, tmodel, function(err, data) {
     if (err) {
       sendJsonResponse(res, 500, err)
       return
@@ -57,7 +56,7 @@ module.exports.delete = function(req, res) {
   const tmodel = {
     uuid: req.query.uuid
   }
-  TModel.remove(tmodel, function(err, data) {
+  TModel.delete(tmodel, function(err, data) {
     if (err) {
       sendJsonResponse(res, 500, err)
       return
@@ -70,7 +69,7 @@ module.exports.detail = function(req, res) {
   const tmodel = {
     uuid: req.query.uuid
   }
-  TModel.find(tmodel, function(err, data) {
+  TModel.select(tmodel, function(err, data) {
     if (err) {
       sendJsonResponse(res, 500, err)
       return
@@ -81,7 +80,7 @@ module.exports.detail = function(req, res) {
 
 module.exports.list = function(req, res) {
   const tmodel = {}
-  TModel.find(tmodel, function(err, data) {
+  TModel.select(tmodel, function(err, data) {
     if (err) {
       sendJsonResponse(res, 500, err)
       return
