@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2020-07-31 09:55:31
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-18 16:58:17
+ * @LastEditTime: 2021-04-27 19:37:10
  * @Description: file content
  * @FilePath: /vue-demo/src/layout/components/Header/index.vue
 -->
@@ -28,8 +28,21 @@ const menuItems = [
     ]
   },
   {
-    title: 'Sample展示',
-    router: '/'
+    title: 'demo例子',
+    children: [
+      {
+        title: 'Split组件',
+        router: '/demo/split'
+      },
+      {
+        title: '表格',
+        router: '/demo/table'
+      },
+      {
+        title: 'threeJs',
+        router: '/demo/threejs'
+      }
+    ]
   },
   {
     title: 'D3语法',
