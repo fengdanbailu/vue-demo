@@ -2,19 +2,19 @@
  * @Author: gm.chen
  * @Date: 2021-04-27 19:30:04
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-27 22:59:14
+ * @LastEditTime: 2021-04-28 23:30:59
  * @Description: file content
  * @FilePath: /vue-demo/src/components/gmSplitDiv/index.vue
 -->
 <template>
   <div class="wrap">
     <div ref="letfDom" class="lf" style="width: 280px;">
+      <div class="lf-content">
+        <slot name="left" />
+      </div>
       <div ref="moveDom" class="touch-div">
         <span />
         <span />
-      </div>
-      <div class="lf-content">
-        <slot name="left" />
       </div>
     </div>
     <div class="rt">
@@ -76,26 +76,24 @@ export default {
 <style lang="scss" scoped>
 .wrap {
     display:flex;
-    height:300px;
+    height:calc(100vh-400px);
     position:relative;
-    background-color:blue;
-    padding:10px;
     .lf {
-        background-color:green;
+        position: relative;
         height:100%;
-        width:200px;
         .lf-content {
-            position:absolute;
-            top:10px;
+            width:100%;
+            height:100%;
+            position:relative;
+            overflow:auto;
         };
         .touch-div {
             z-index:20;
-            background-color:red;
-            position: relative;
+            position: absolute;
             top: 0;
             height: 100%;
             left: 100%;
-            width: 20px;
+            width: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -109,10 +107,11 @@ export default {
         }
     }
     .rt{
-        padding-left:20px;
+        padding-left:15px;
+        overflow:auto;
         flex:1;
-        background-color:yellow;
         height:100%;
+        width:100%;
         position: relative;
     }
 

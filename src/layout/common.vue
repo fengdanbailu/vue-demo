@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2020-07-13 20:56:22
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-18 17:05:52
+ * @LastEditTime: 2021-04-28 07:37:57
  * @Description: file content
  * @FilePath: /vue-demo/src/layout/common.vue
 -->
@@ -33,6 +33,7 @@
 import Footer from './components/Footer'
 import Header from './components/Header'
 import Aside from './components/Aside'
+
 export default {
   components: {
     Footer,
@@ -70,6 +71,8 @@ export default {
     .sidebar-content {
       height: calc(100vh - 45px);
       overflow-x: hidden;
+      // background:red;
+      // width:200px;
     }
   }
 </style>
