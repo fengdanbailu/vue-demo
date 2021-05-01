@@ -21,3 +21,4 @@ yarn-error.log*
 dist/*
 
 service/node_modules
+service_test/node_modules
