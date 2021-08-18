@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2021-08-18 19:59:44
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-08-18 20:05:37
+ * @LastEditTime: 2021-08-18 22:07:19
  * @Description: file content
  * @FilePath: /vue-demo/src/store/modules/gmchen.js
  */
@@ -11,10 +11,14 @@ const state = {
   name: 'gmchen',
   age: 12,
   sex: '男',
-  others: {}
+  others: {},
+  count: 0
 }
 
-const mutations = {
+export const mutations = {
+  increment: (state) => {
+    state.count = state.count + 1
+  },
   SET_NAME: (state, name) => {
     state.name = name
   },
@@ -29,7 +33,7 @@ const mutations = {
   }
 }
 
-const actions = {
+export const actions = {
   // user login
   SetInfo({ commit, state, actions }, info) {
     const { name, age, sex } = info

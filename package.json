@@ -12,12 +12,15 @@
     "help": "vue-cli-service help",
     "proxy": "node ./build/proxy",
     "service": "cd service && yarn start && cd ..",
-    "service:debug": "cd service && yarn debug && cd .."
+    "service:debug": "cd service && yarn debug && cd ..",
+    "test":"mocha ./src/test/*.js"
   },
+  "type":"module",
   "dependencies": {
     "animate.css": "^3.7.2",
     "apollo-server-express": "^2.24.0",
     "axios": "0.21.1",
+    "chai": "^4.3.4",
     "clipboard": "2.0.4",
     "clusterize.js": "^0.18.1",
     "codemirror": "5.45.0",
@@ -37,6 +40,7 @@
     "jsonlint": "1.6.3",
     "jszip": "3.2.1",
     "lodash": "^4.17.19",
+    "mocha": "^9.0.3",
     "normalize.css": "7.0.0",
     "nprogress": "^0.2.0",
     "path-to-regexp": "2.4.0",

@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2020-06-24 20:35:42
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-08-18 20:07:55
+ * @LastEditTime: 2021-08-18 21:34:02
  * @Description: file content
  * @FilePath: /vue-demo/src/store/index.js
  */
@@ -10,7 +10,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import getters from './getters'
 import createLogger from 'vuex/dist/logger'
-
+import _ from 'lodash'
 Vue.use(Vuex)
 
 // https://webpack.js.org/guides/dependency-management/#requirecontext
@@ -29,13 +29,14 @@ const modules = modulesFiles.keys().reduce((modules, modulePath) => {
 const myPlugin = store => {
   // 当 store 初始化后调用
   console.log('1-------')
-  console.log(store.state)
-  console.log(store.mutation)
+  const prevState = _.cloneDeep(store.state)
+  console.log(prevState.gmchen)
   store.subscribe((mutation, state) => {
     // 每次 mutation 之后调用
     // mutation 的格式为 { type, payload }
     console.log('2-------')
-    console.log(state)
+    const nextState = _.cloneDeep(state)
+    console.log(nextState.gmchen)
     console.log(mutation)
   })
 }
@@ -74,6 +75,7 @@ const loggerParam = {
 const store = new Vuex.Store({
   modules,
   getters,
+  strict: process.env.NODE_ENV !== 'production',
   plugins: [myPlugin, createLogger(loggerParam)]
 })
 
