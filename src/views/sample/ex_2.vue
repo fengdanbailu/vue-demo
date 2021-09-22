@@ -2,7 +2,7 @@
  * @Author: gm.chen
  * @Date: 2020-06-24 15:45:52
  * @LastEditors: gm.chen
- * @LastEditTime: 2021-04-20 06:52:23
+ * @LastEditTime: 2021-09-23 07:37:07
  * @Description: file content
  * @FilePath: /vue-demo/src/views/sample/ex_2.vue
 -->
@@ -12,6 +12,24 @@
       <div slot="header" class="clearfix">
         <span>{{ title }}</span>
       </div>
+
+      <!-- 查看el-button-group的效果 -->
+      <el-button-group>
+        <el-button type="primary">测试1</el-button>
+        <el-button type="primary">测试2</el-button>
+        <el-button type="primary">测试3</el-button>
+        <el-button type="primary">测试4</el-button>
+        <el-button type="primary">测试5</el-button>
+      </el-button-group>
+
+      <el-button-group>
+        <el-button type="primary">测试1</el-button>
+        <el-button type="success">测试2</el-button>
+        <el-button type="warning">测试3</el-button>
+        <el-button type="danger">测试4</el-button>
+        <el-button type="info">测试5</el-button>
+      </el-button-group>
+
       <el-row style="margin-bottom:10px;text-align:right">
         <el-button type="primary" @click="btnAdd">增加</el-button>
         <el-button type="primary" :disabled="multipleSelection.length!==1" @click="btnUpdate">修改</el-button>
